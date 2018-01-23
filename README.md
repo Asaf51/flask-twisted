@@ -12,7 +12,7 @@ pip install Flask-Twisted
 
 ``` python
 from flask import Flask
-from flask.ext.twisted import Twisted
+from flask_twisted import Twisted
 
 app = Flask(__name__)
 twisted = Twisted(app)
@@ -27,6 +27,27 @@ Save it as app.py (or something similar) and run it with your Python interpreter
 
 ``` bash
 python app.py
+```
+
+## A Minimal SSL Application
+
+``` python
+from flask import Flask
+from flask_twisted import Twisted
+
+app = Flask(__name__)
+twisted = Twisted(app, ssl=True, ssl_cert="cert.pem", ssl_pem="key.pem")
+
+...
+
+if __name__ == "__main__":
+    app.run()
+```
+
+Save it as ssl_app.py (or something similar) and run it with your Python interpreter.
+
+``` bash
+python ssl_app.py
 ```
 
 ## Twisted Daemon
